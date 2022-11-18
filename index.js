@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 
 app.get("/docs", (req, res) => {
 	res.redirect(
-		"https://adajkt.notion.site/Dokumentasi-Gaul-lang-5688df9c84f7441494be7bd74504b7b4"
+		"https://sweltering-thursday-343.notion.site/Dokumentasi-Gaul-lang-10d312582e804b83953c2d858fb94df7"
 	);
 });
 
