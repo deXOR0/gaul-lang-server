@@ -1,12 +1,20 @@
 import express from "express";
 import { Worker } from "worker_threads";
 import { performance } from "perf_hooks";
+import ejs from "ejs";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const TIME_LIMIT_MS = Number(process.env.TIME_LIMIT_MS) || 5000;
 
 app.use(express.json());
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.post("/run", (req, res) => {
 	const { code, input } = req.body;
@@ -40,7 +48,7 @@ app.post("/run", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-	res.send("Welcome to Gaul-lang!");
+	res.render("home");
 });
 
 app.get("/docs", (req, res) => {
