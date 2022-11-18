@@ -12,7 +12,7 @@ runCodeButton.addEventListener("click", async () => {
 	const code = codingTextArea.value.trim();
 	const input = inputTextArea.value.trim().split("\n");
 
-	const response = await fetch("https://gaul-lang.up.railway.app//run", {
+	const response = await fetch("https://gaul-lang.up.railway.app/run", {
 		method: "post",
 		body: {
 			code,
