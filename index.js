@@ -1,9 +1,9 @@
 import express from "express";
 import { Worker } from "worker_threads";
 import { performance } from "perf_hooks";
-import ejs from "ejs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import morgan from "morgan";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 const TIME_LIMIT_MS = Number(process.env.TIME_LIMIT_MS) || 5000;
 
 app.use(express.json());
+app.use(morgan("common"));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));

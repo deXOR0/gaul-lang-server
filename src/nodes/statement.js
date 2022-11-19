@@ -109,7 +109,6 @@ class Print extends Statement {
 	eval(env) {
 		const expression = this.expression.eval(env).toString();
 		if (env.outputStream.length < Number.MAX_SAFE_INTEGER) {
-			console.log(env.outputStream.length);
 			env.outputStream.push(expression);
 		}
 	}
